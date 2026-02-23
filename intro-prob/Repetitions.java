@@ -85,20 +85,26 @@ public class Repetitions {
         // int n = fs.nextInt();
         // out.append(n).append('\n');
 
-        long n = fs.nextLong();
-        out.append(n).append(' ');
-        // System.out.println((n*3)+1+ " num ");
-        while(n!=1){
-            if((n&1 )== 0) {
-                n/=2;
-                out.append(n).append(' ');
-            } 
-            else {
-                n=(n*3)+1;
-                out.append(n).append(' ');
-            }
-            
+        String s = fs.next();
+
+        // int l = 0;
+        // int r = 1;
+        // int ans = 1;
+        // while(r<s.length()){
+        //     if(s.charAt(r) == s.charAt(r-1)){
+        //         ans = Math.max(ans, r-l+1);
+        //     } else l = r;
+        //     r++;
+        // }
+        // out.append(ans).append('\n');
+
+        int curr = 1;
+        int ans = 1;
+        for(int i = 1; i<s.length(); i++){
+            if(s.charAt(i-1)!=s.charAt(i)) curr=0;
+            curr++;
+            ans  = Math.max(ans, curr);
         }
-        out.append('\n');
+        out.append(ans).append('\n');
     }
 }
